@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-stone-50 text-neutral-900;
+  }
+}
+
+/* Subtle dot grid background pattern */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Alternative: diagonal lines pattern */
+.line-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.02) 10px,
+    rgba(0, 0, 0, 0.02) 11px
+  );
+}
+
+/* Hover underline animation */
+.hover-underline {
+  position: relative;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  padding-bottom: 1px;
+  transition: transform 0.5s ease, border-bottom-color 0.5s ease;
+  display: inline-block;
+}
+
+.dark .hover-underline {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: width 0.5s ease;
+}
+
+.dark .hover-underline::after {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.hover-underline:hover {
+  transform: translateY(-2px);
+  border-bottom-color: rgba(0, 0, 0, 0.6);
+}
+
+.dark .hover-underline:hover {
+  border-bottom-color: rgba(255, 255, 255, 0.7);
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
