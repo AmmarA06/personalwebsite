@@ -190,7 +190,7 @@ function App() {
                     <p>
                       a{" "}
                       <a
-                        href="https://github.com/AmmarA06/Synthra/"
+                        href="https://tinyurl.com/2nc7tc9e"
                         className="hover-underline font-medium"
                         target="_blank"
                         rel="noopener noreferrer"
