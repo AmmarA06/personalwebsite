@@ -27,9 +27,9 @@ function App() {
         <div className="max-w-3xl w-full">
           {/* Header */}
           <header className="mb-10 flex items-center justify-between">
-            <h1 className="text-2xl font-medium underline underline-offset-8 dark:text-neutral-100">
+            <a href="/" className="text-lg font-medium hover-underline cursor-pointer underline-offset-8 dark:text-neutral-100">
               Ammar Ahmad
-            </h1>
+            </a>
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
@@ -70,7 +70,7 @@ function App() {
           {/* Main Content */}
           <main className="space-y-2.5 text-base leading-relaxed dark:text-neutral-300">
             <div className="flex items-start gap-3">
-              <span className="text-neutral-400 mt-0.5">➣</span>
+              <span className="text-neutral-400 mt-0.5">➤</span>
               <div className="flex items-center gap-2">
                 <img
                   src="/Utoronto_coa.svg.png"
@@ -78,7 +78,7 @@ function App() {
                   className="h-10 w-10 object-contain"
                 />
                 <p>
-                comp eng at{" "}
+                Studying Computer Engineering at{" "}
                   <a
                     href="https://www.utoronto.ca/"
                     target="_blank"
@@ -92,7 +92,7 @@ function App() {
             </div>
 
             <div className="flex items-start gap-3">
-              <span className="text-neutral-400 mt-0.5">➣</span>
+              <span className="text-neutral-400 mt-0.5">➤</span>
               <div className="flex items-center gap-2">
                 <img
                   src="/autoronto.webp"
@@ -114,7 +114,7 @@ function App() {
             </div>
 
             <div className="flex items-start gap-3">
-              <span className="text-neutral-400 mt-0.5">➣</span>
+              <span className="text-neutral-400 mt-0.5">➤</span>
               <div>
                 <p className="mb-2">previous...</p>
                 <div className="ml-5 space-y-2">
@@ -127,7 +127,7 @@ function App() {
                         className="h-6 w-6 object-contain"
                       />
                       <p>
-                        SWE Intern at{" "}
+                        Software Engineer Intern at{" "}
                         <a
                           href="https://graycore.io/"
                           target="_blank"
@@ -148,7 +148,7 @@ function App() {
                         className="h-6 w-6 object-contain"
                       />
                       <p>
-                        Student Researcher at{" "}
+                        Research Developer Intern at{" "}
                         <a
                           href="https://uwaterloo.ca/digital-intelligence-for-public-health/"
                           target="_blank"
@@ -165,7 +165,7 @@ function App() {
             </div>
 
             <div className="flex items-start gap-3">
-              <span className="text-neutral-400 mt-0.5">➣</span>
+              <span className="text-neutral-400 mt-0.5">➤</span>
               <div>
                 <p className="mb-2">what i've built...</p>
                 <div className="ml-5 space-y-2">
@@ -197,7 +197,7 @@ function App() {
                       >
                         productivity app
                       </a>{" "}
-                      that tracks gaze to improve concentration (interest from{" "}
+                      that tracks gaze to improve concentration, interest from{" "}
                       <img
                         src="/snowflake-color.png"
                         alt="Snowflake"
@@ -211,7 +211,6 @@ function App() {
                       >
                         Snowflake
                       </a>
-                      )
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
