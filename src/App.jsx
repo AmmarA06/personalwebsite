@@ -71,46 +71,42 @@ function App() {
           <main className="space-y-2.5 text-base leading-relaxed dark:text-neutral-300">
             <div className="flex items-start gap-3">
               <span className="text-neutral-400 mt-0.5">➤</span>
-              <div className="flex items-center gap-2">
+              <p>
+                Studying Computer Engineering at{" "}
                 <img
                   src="/Utoronto_coa.svg.png"
                   alt="UofT"
-                  className="h-10 w-10 object-contain"
-                />
-                <p>
-                Studying Computer Engineering at{" "}
-                  <a
-                    href="https://www.utoronto.ca/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium hover-underline"
-                  >
-                    University of Toronto
-                  </a>
-                </p>
-              </div>
+                  className="h-6 w-6 object-contain inline align-text-bottom"
+                />{" "}
+                <a
+                  href="https://www.utoronto.ca/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover-underline"
+                >
+                  University of Toronto
+                </a>
+              </p>
             </div>
 
             <div className="flex items-start gap-3">
               <span className="text-neutral-400 mt-0.5">➤</span>
-              <div className="flex items-center gap-2">
+              <p>
+                Software Developer at{" "}
                 <img
                   src="/autoronto.webp"
                   alt="aUToronto"
-                  className="h-10 w-10 object-contain"
-                />
-                <p>
-                  Software Developer at{" "}
-                  <a
-                    href="https://www.autodrive.utoronto.ca/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium hover-underline"
-                  >
-                    aUToronto
-                  </a>
-                </p>
-              </div>
+                  className="h-6 w-7 object-contain inline align-text-bottom"
+                />{" "}
+                <a
+                  href="https://www.autodrive.utoronto.ca/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover-underline"
+                >
+                  aUToronto
+                </a>
+              </p>
             </div>
 
             <div className="flex items-start gap-3">
@@ -120,45 +116,41 @@ function App() {
                 <div className="ml-5 space-y-2">
                   <div className="flex items-start gap-3">
                     <span className="text-neutral-300 mt-0.5">→</span>
-                    <div className="flex items-center gap-2">
+                    <p>
+                      Software Engineer Intern at{" "}
                       <img
                         src="/graycore-cube.svg"
                         alt="Graycore"
-                        className="h-6 w-6 object-contain"
-                      />
-                      <p>
-                        Software Engineer Intern at{" "}
-                        <a
-                          href="https://graycore.io/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-medium hover-underline"
-                        >
-                          Graycore
-                        </a>
-                      </p>
-                    </div>
+                        className="h-5 w-6 object-contain inline align-text-bottom"
+                      />{" "}
+                      <a
+                        href="https://graycore.io/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium hover-underline"
+                      >
+                        Graycore
+                      </a>
+                    </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-neutral-300 mt-0.5">→</span>
-                    <div className="flex items-center gap-2">
+                    <p>
+                      Research Developer Intern at{" "}
                       <img
                         src="/University_of_Waterloo_seal.svg.png"
                         alt="UWaterloo"
-                        className="h-6 w-6 object-contain"
-                      />
-                      <p>
-                        Research Developer Intern at{" "}
-                        <a
-                          href="https://uwaterloo.ca/digital-intelligence-for-public-health/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-medium hover-underline"
-                        >
-                          UWaterloo
-                        </a>
-                      </p>
-                    </div>
+                        className="h-6 w-6 object-contain inline align-text-bottom"
+                      />{" "}
+                      <a
+                        href="https://uwaterloo.ca/digital-intelligence-for-public-health/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium hover-underline"
+                      >
+                        UWaterloo
+                      </a>
+                    </p>
                   </div>
                 </div>
               </div>
