@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import MinimalistCursor from "./components/MinimalistCursor";
 
 function App() {
@@ -27,14 +28,21 @@ function App() {
         <div className="max-w-3xl w-full">
           {/* Header */}
           <header className="mb-10 flex items-center justify-between">
-            <a href="/" className="text-lg font-medium hover-underline cursor-pointer underline-offset-8 dark:text-neutral-100">
+            <a className="text-lg font-medium hover-underline cursor-pointer underline-offset-8 dark:text-neutral-100">
               Ammar Ahmad
             </a>
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-              aria-label="Toggle dark mode"
-            >
+            <div className="flex items-center gap-6">
+              <Link
+                to="/projects"
+                className="text-base text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover-underline cursor-pointer underline-offset-8 transition-colors"
+              >
+                projects
+              </Link>
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                aria-label="Toggle dark mode"
+              >
               {darkMode ? (
                 <svg
                   className="w-5 h-5"
@@ -65,6 +73,7 @@ function App() {
                 </svg>
               )}
             </button>
+            </div>
           </header>
 
           {/* Main Content */}
@@ -85,6 +94,15 @@ function App() {
                   className="font-medium hover-underline"
                 >
                   University of Toronto
+                </a>{" "}
+                on a{" "}
+                <a
+                  href="https://schulichleaders.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover-underline"
+                >
+                  full-ride scholarship
                 </a>
               </p>
             </div>
@@ -159,7 +177,7 @@ function App() {
             <div className="flex items-start gap-3">
               <span className="text-neutral-400 mt-0.5">➤</span>
               <div>
-                <p className="mb-2">what i've built...</p>
+                <p className="mb-2">some projects i've built...</p>
                 <div className="ml-5 space-y-2">
                   <div className="flex items-start gap-3">
                     <span className="text-neutral-300 mt-0.5">→</span>
