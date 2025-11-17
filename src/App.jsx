@@ -177,19 +177,25 @@ function App() {
               <div>
                 <p className="mb-2">some projects i've built...</p>
                 <div className="ml-5 space-y-2">
-                  <div className="flex items-start gap-3">
+
+                                    <div className="flex items-start gap-3">
                     <span className="text-neutral-300 mt-0.5">→</span>
                     <p>
-                      an{" "}
+                      a                       <img
+                        src="/shopify-logo.png"
+                        alt="Shopify"
+                        className="h-6 w-6 object-contain inline align-text-bottom"
+                      />{" "}
+                      
+                      Shopify app that turns plain product photos into{" "}
                       <a
-                        href="https://github.com/AmmarA06/Synthra/"
+                        href="https://github.com/AmmarA06/Shop3D"
                         className="hover-underline font-medium"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        intelligent browser extension
+                      3D shopping experiences
                       </a>{" "}
-                      that transforms webpages into notes
                     </p>
                   </div>
 
@@ -221,19 +227,20 @@ function App() {
                       </a>
                     </p>
                   </div>
+
                   <div className="flex items-start gap-3">
                     <span className="text-neutral-300 mt-0.5">→</span>
                     <p>
-                      a{" "}
+                      an{" "}
                       <a
-                        href="https://github.com/AmmarA06/CodeType/"
+                        href="https://github.com/AmmarA06/Synthra/"
                         className="hover-underline font-medium"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Monkeytype-styled app,
+                        intelligent browser extension
                       </a>{" "}
-                      but for programming languages
+                      that transforms webpages into notes
                     </p>
                   </div>
                 </div>

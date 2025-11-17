@@ -270,7 +270,7 @@ function Projects() {
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-1">
+                  <div className="flex flex-wrap gap-1.5">
                     {project.tags.map((tags, tagsIndex) => (
                       <span
                         key={tagsIndex}
