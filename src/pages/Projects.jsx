@@ -22,20 +22,30 @@ function Projects() {
   }, [darkMode]);
   const projects = [
     {
+      title: "Shop3D",
+      description: "a Shopify app that turns product images into interactive 3D models. Customers can rotate, zoom, and inspect products directly on your store. Uses TripoSR for model generation and React Three Fiber for smooth 3D visualization.",
+      tags: ["Shopify API", "React Three Fiber", "GraphQL", "Rails", "FastAPI", "Celery", "TripoSR", "Redis", "Supabase"],
+      media: "/videos/shopify-3d-viewer.mp4",
+      mediaType: "video",
+      playbackSpeed: 1.5,
+      github: "https://github.com/AmmarA06/Shop3D/",
+      link: null
+    },
+    {
       title: "Synthra",
       description:
         "an intelligent browser extension that transforms webpages into notes.",
       tags: ["Chrome Extension", "Gemini", "Notion API"],
-      media: "/videos/Synthra_clip_edited.mp4", // Add your image or video URL here
-      mediaType: "video", // "image" or "video"
-      playbackSpeed: 1.5, // For videos: 1.0 = normal, 1.5 = faster, 0.5 = slower
+      media: "/videos/Synthra_clip_edited.mp4", 
+      mediaType: "video", 
+      playbackSpeed: 1.5, 
       github: "https://github.com/AmmarA06/Synthra/",
       link: null,
     },
     {
       title: "Rift Rewind",
-      description: "a League year-in-review that blends data visualization, coaching, and celebration, highlighting progress and guiding next steps for improvement. Made for Rift Rewind hackathon.",
-      tags: ["React", "AWS", "Flask", "D3.js", "Riot API"],
+      description: "a league year-in-review that blends data visualization, coaching, and celebration, highlighting progress and guiding next steps for improvement.",
+      tags: ["React", "AWS", "Bedrock", "Flask", "D3.js", "Riot API"],
       media: "/videos/riftrewind_demo.mp4",
       mediaType: "video",
       playbackSpeed: 1.5,
@@ -46,7 +56,7 @@ function Projects() {
       title: "LookLock",
       description:
         "a productivity app that tracks gaze to improve concentration, interest from Snowflake.",
-      tags: ["Streamlit", "OpenCV", "Winner @ JAMHacks"],
+      tags: ["Streamlit", "OpenCV",],
       media: "projectimages/looklock.png",
       mediaType: "image",
       playbackSpeed: 1.0,
@@ -66,7 +76,7 @@ function Projects() {
     },
     {
       title: "BiasBreaker",
-      description: "search for any news topic and receive a comprehensive, multi-perspective summary.",
+      description: "search for any news topic and receive a multi-perspective summary.",
       tags: ["React", "three.js", "FastAPI", "Cohere", "Beautiful Soup", "Next.js", "Supabase"],
       media: "/projectimages/biasbreaker.png",
       mediaType: "image",
@@ -76,7 +86,7 @@ function Projects() {
     },
     {
       title: "Trivia Bot",
-      description: "A Discord bot for hosting trivia games across multiple categories with scoreboards, streak tracking, and leaderboards.",
+      description: "a Discord bot for hosting trivia games across multiple categories with scoreboards, streak tracking, and leaderboards.",
       tags: ["Python", "SQLite", "Discord"],
       media: "/videos/triviabot_demo.mp4",
       mediaType: "video",
@@ -85,7 +95,7 @@ function Projects() {
     },
     {
       title: "Basketball Analysis App",
-      description: "This project allows users to record and analyze player stats, including shots, blocks, and rebounds.",
+      description: "this project allows users to record and analyze player stats, including shots, blocks, and rebounds.",
       tags: ["Pygame", "Matplotlib"],
       media: "/projectimages/basketballapp.png",
       mediaType: "image",
@@ -264,16 +274,16 @@ function Projects() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-neutral-600 dark:text-neutral-300 text-sm mb-4 leading-relaxed w-[80%]">
+                  <p className="text-neutral-600 dark:text-neutral-300 text-sm mb-4 leading-relaxed">
                     {project.description}
                   </p>
 
                   {/* tags Tags */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1">
                     {project.tags.map((tags, tagsIndex) => (
                       <span
                         key={tagsIndex}
-                        className="text-xs px-2.5 py-1 bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 rounded-md"
+                        className="text-xs px-1.5 py-1 bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 rounded-md"
                       >
                         {tags}
                       </span>
