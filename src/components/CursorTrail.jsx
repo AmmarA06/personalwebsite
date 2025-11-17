@@ -4,13 +4,12 @@ const CursorTrail = () => {
   const [cursorPositions, setCursorPositions] = useState([]);
   const colorIndexRef = useRef(0);
 
-  // Color spectrum: blue → purple → pink → orange → yellow
   const colors = [
-    'rgba(59, 130, 246, 0.5)',   // blue
-    'rgba(139, 92, 246, 0.5)',   // purple
-    'rgba(236, 72, 153, 0.5)',   // pink
-    'rgba(249, 115, 22, 0.5)',   // orange
-    'rgba(234, 179, 8, 0.5)',    // yellow
+    'rgba(59, 130, 246, 0.5)',   
+    'rgba(139, 92, 246, 0.5)',   
+    'rgba(236, 72, 153, 0.5)',   
+    'rgba(249, 115, 22, 0.5)',   
+    'rgba(234, 179, 8, 0.5)',    
   ];
 
   useEffect(() => {

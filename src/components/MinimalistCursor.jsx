@@ -9,21 +9,19 @@ const MinimalistCursor = () => {
     const handleMouseMove = (e) => {
       const currentTime = Date.now();
 
-      // Throttle trail updates
       if (currentTime - lastTimeRef.current > 30) {
         lastTimeRef.current = currentTime;
 
         setTrail((prev) => {
           const newTrail = [
             { x: e.clientX, y: e.clientY, id: currentTime },
-            ...prev.slice(0, 15) // Keep last 15 positions
+            ...prev.slice(0, 15) 
           ];
           return newTrail;
         });
       }
     };
 
-    // Fade out trail points
     const fadeInterval = setInterval(() => {
       setTrail((prev) => {
         const now = Date.now();

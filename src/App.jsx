@@ -26,7 +26,6 @@ function App() {
       <MinimalistCursor />
       <div className="min-h-screen px-6 py-8 md:py-12 flex items-start md:items-center justify-center bg-stone-50 dark:bg-neutral-900 transition-colors duration-300">
         <div className="max-w-3xl w-full">
-          {/* Header */}
           <header className="mb-10 flex items-center justify-between">
             <a className="text-lg font-medium hover-underline cursor-pointer underline-offset-8 dark:text-neutral-100">
               Ammar Ahmad
@@ -76,7 +75,6 @@ function App() {
             </div>
           </header>
 
-          {/* Main Content */}
           <main className="space-y-2.5 text-base leading-relaxed dark:text-neutral-300">
             <div className="flex items-start gap-3">
               <span className="text-neutral-400 mt-0.5">➤</span>
@@ -243,7 +241,6 @@ function App() {
             </div>
           </main>
 
-          {/* Footer/Social Links */}
           <footer className="mt-12 flex gap-5">
             <a
               href="https://github.com/AmmarA06"

@@ -68,7 +68,7 @@ function Projects() {
       description:
         "a Monkeytype-styled app, but for programming languages.",
       tags: ["React", "TypeScript", "Vite", "Supabase"],
-      media: ["/projectimages/codetype.png"], // Can be a string or array of strings for image carousel
+      media: ["/projectimages/codetype.png"], 
       mediaType: "image",
       playbackSpeed: 1.0,
       github: "https://github.com/AmmarA06/CodeType/",
@@ -158,7 +158,6 @@ function Projects() {
           </header>
 
 
-          {/* Projects List */}
           <div className="space-y-8">
             {projects.map((project, index) => {
               const videoRef = useRef(null);
@@ -170,7 +169,6 @@ function Projects() {
                 }
               }, [project.playbackSpeed, project.mediaType]);
 
-              // Handle image array
               const images = Array.isArray(project.media) ? project.media : project.media ? [project.media] : [];
               const hasMultipleImages = images.length > 1;
 
@@ -209,7 +207,6 @@ function Projects() {
                         />
                         {hasMultipleImages && (
                           <>
-                            {/* Left Arrow */}
                             <button
                               onClick={prevImage}
                               className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
@@ -217,7 +214,6 @@ function Projects() {
                             >
                               <ChevronLeft className="w-5 h-5" />
                             </button>
-                            {/* Right Arrow */}
                             <button
                               onClick={nextImage}
                               className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
@@ -225,7 +221,6 @@ function Projects() {
                             >
                               <ChevronRight className="w-5 h-5" />
                             </button>
-                            {/* Image Counter */}
                             <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded">
                               {currentImageIndex + 1} / {images.length}
                             </div>
@@ -240,9 +235,7 @@ function Projects() {
                   )}
                 </div>
 
-                {/* Content */}
                 <div className="p-5">
-                  {/* Title and Icons */}
                   <div className="flex items-start justify-between mb-2">
                     <h2 className="text-lg font-medium dark:text-neutral-100">
                       {project.title}
@@ -273,12 +266,10 @@ function Projects() {
                     </div>
                   </div>
 
-                  {/* Description */}
                   <p className="text-neutral-600 dark:text-neutral-300 text-sm mb-4 leading-relaxed">
                     {project.description}
                   </p>
 
-                  {/* tags Tags */}
                   <div className="flex flex-wrap gap-1">
                     {project.tags.map((tags, tagsIndex) => (
                       <span
@@ -295,7 +286,6 @@ function Projects() {
             })}
           </div>
 
-          {/* Footer/Social Links */}
           <footer className="mt-12 flex gap-5">
             <a
               href="https://github.com/AmmarA06"
