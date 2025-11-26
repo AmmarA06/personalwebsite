@@ -4,27 +4,24 @@ import { Link } from "react-router-dom";
 import MinimalistCursor from "../components/MinimalistCursor";
 
 function Projects() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [lightMode, setLightMode] = useState(() => {
+    const savedMode = localStorage.getItem("lightMode");
+    return savedMode === "true";
+  });
 
   useEffect(() => {
-    const savedMode = localStorage.getItem("darkMode");
-    const isDark = savedMode !== null ? savedMode === "true" : true;
-    setDarkMode(isDark);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("darkMode", darkMode);
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
+    localStorage.setItem("lightMode", lightMode);
+    if (lightMode) {
+      document.documentElement.classList.add("light");
     } else {
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove("light");
     }
-  }, [darkMode]);
+  }, [lightMode]);
   const projects = [
     {
       title: "Shop3D",
       description: "a Shopify app that turns product images into interactive 3D models. Customers can rotate, zoom, and inspect products directly on your store. Uses TripoSR for model generation and React Three Fiber for smooth 3D visualization.",
-      tags: ["Shopify API", "React Three Fiber", "GraphQL", "Rails", "FastAPI", "Celery", "TripoSR", "Redis", "Supabase"],
+      tags: ["Shopify API", "Ruby on Rails", "GraphQL", "FastAPI", "three.js", "Celery", "TripoSR", "Redis", "SQL"],
       media: "/videos/shopify-3d-viewer.mp4",
       mediaType: "video",
       playbackSpeed: 1.5,
@@ -108,23 +105,23 @@ function Projects() {
   return (
     <>
       <MinimalistCursor />
-      <div className="min-h-screen px-6 py-6 md:py-12 flex items-start md:items-center justify-center bg-stone-50 dark:bg-neutral-900 transition-colors duration-300">
+      <div className="min-h-screen px-6 py-6 md:py-12 flex items-start md:items-center justify-center bg-neutral-900 light:bg-stone-50 transition-colors duration-300">
         <div className="max-w-2xl w-full">
           {/* Header */}
           <header className="mb-10 flex items-center justify-between">
             <Link
               to="/"
-              className="text-lg font-medium hover-underline cursor-pointer underline-offset-8 dark:text-neutral-100"
+              className="text-lg font-medium hover-underline cursor-pointer underline-offset-8 text-neutral-100 light:text-neutral-900"
             >
               Ammar Ahmad
             </Link>
             <div className="flex items-center gap-6">
               <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-                aria-label="Toggle dark mode"
+                onClick={() => setLightMode(!lightMode)}
+                className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 transition-colors"
+                aria-label="Toggle light mode"
               >
-                {darkMode ? (
+                {lightMode ? (
                   <svg
                     className="w-5 h-5"
                     fill="none"
@@ -135,7 +132,7 @@ function Projects() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
                     />
                   </svg>
                 ) : (
@@ -149,7 +146,7 @@ function Projects() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                     />
                   </svg>
                 )}
@@ -183,10 +180,10 @@ function Projects() {
               return (
                 <div
                   key={index}
-                  className="bg-white dark:bg-neutral-800 rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:scale-[1.03] hover:shadow-xl dark:hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                  className="bg-neutral-800 light:bg-white rounded-lg overflow-hidden border border-neutral-700 light:border-neutral-200 hover:scale-[1.03] hover:shadow-2xl light:hover:shadow-xl transition-all duration-300 cursor-pointer"
                 >
                 {/* Media */}
-                <div className={project.mediaType === "video" ? "aspect-video bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center" : "bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center relative"}>
+                <div className={project.mediaType === "video" ? "aspect-video bg-neutral-700 light:bg-neutral-200 flex items-center justify-center" : "bg-neutral-700 light:bg-neutral-200 flex items-center justify-center relative"}>
                   {project.media ? (
                     project.mediaType === "video" ? (
                       <video
@@ -197,6 +194,8 @@ function Projects() {
                         loop
                         muted
                         playsInline
+                        loading="lazy"
+                        preload="metadata"
                       />
                     ) : (
                       <>
@@ -204,6 +203,7 @@ function Projects() {
                           src={images[currentImageIndex]}
                           alt={`${project.title} - Image ${currentImageIndex + 1}`}
                           className="w-full h-auto"
+                          loading="lazy"
                         />
                         {hasMultipleImages && (
                           <>
@@ -229,7 +229,7 @@ function Projects() {
                       </>
                     )
                   ) : (
-                    <span className="text-neutral-400 dark:text-neutral-500 text-sm py-24">
+                    <span className="text-neutral-500 light:text-neutral-400 text-sm py-24">
                       {project.mediaType === "video" ? "video placeholder" : "image placeholder"}
                     </span>
                   )}
@@ -237,7 +237,7 @@ function Projects() {
 
                 <div className="p-5">
                   <div className="flex items-start justify-between mb-2">
-                    <h2 className="text-lg font-medium dark:text-neutral-100">
+                    <h2 className="text-lg font-medium text-neutral-100 light:text-neutral-900">
                       {project.title}
                     </h2>
                     <div className="flex gap-3 ml-4">
@@ -246,7 +246,7 @@ function Projects() {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                          className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 transition-colors"
                           aria-label="GitHub"
                         >
                           <Github className="w-5 h-5" />
@@ -257,7 +257,7 @@ function Projects() {
                           href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                          className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 transition-colors"
                           aria-label="Open Link"
                         >
                           <ExternalLink className="w-5 h-5" />
@@ -266,7 +266,7 @@ function Projects() {
                     </div>
                   </div>
 
-                  <p className="text-neutral-600 dark:text-neutral-300 text-sm mb-4 leading-relaxed">
+                  <p className="text-neutral-300 light:text-neutral-600 text-sm mb-4 leading-relaxed">
                     {project.description}
                   </p>
 
@@ -274,7 +274,7 @@ function Projects() {
                     {project.tags.map((tags, tagsIndex) => (
                       <span
                         key={tagsIndex}
-                        className="text-xs px-1.5 py-1 bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 rounded-md"
+                        className="text-xs px-1.5 py-1 bg-neutral-700 light:bg-neutral-100 text-neutral-300 light:text-neutral-700 rounded-md"
                       >
                         {tags}
                       </span>
@@ -291,7 +291,7 @@ function Projects() {
               href="https://github.com/AmmarA06"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:scale-110 transition-all duration-200"
+              className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="GitHub"
             >
               <Github className="w-5 h-5" />
@@ -300,7 +300,7 @@ function Projects() {
               href="https://linkedin.com/in/ammar-ahmad06/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:scale-110 transition-all duration-200"
+              className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
@@ -309,7 +309,7 @@ function Projects() {
               href="https://x.com/ammarahmad06_"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:scale-110 transition-all duration-200"
+              className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="X (Twitter)"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -318,7 +318,7 @@ function Projects() {
             </a>
             <a
               href="mailto:ammarahmadwrk@gmail.com"
-              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:scale-110 transition-all duration-200"
+              className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="Email"
             >
               <Mail className="w-5 h-5" />

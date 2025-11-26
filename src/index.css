@@ -6,6 +6,10 @@
 
 @layer base {
   body {
+    @apply bg-neutral-900 text-neutral-300;
+  }
+
+  .light body {
     @apply bg-stone-50 text-neutral-900;
   }
 }
@@ -28,14 +32,14 @@
 .hover-underline {
   position: relative;
   text-decoration: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 1px;
   transition: transform 0.5s ease, border-bottom-color 0.5s ease;
   display: inline-block;
 }
 
-.dark .hover-underline {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+.light .hover-underline {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .hover-underline::after {
@@ -45,21 +49,21 @@
   height: 1px;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.7);
   transition: width 0.5s ease;
 }
 
-.dark .hover-underline::after {
-  background-color: rgba(255, 255, 255, 0.7);
+.light .hover-underline::after {
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .hover-underline:hover {
   transform: translateY(-2px);
-  border-bottom-color: rgba(0, 0, 0, 0.6);
+  border-bottom-color: rgba(255, 255, 255, 0.7);
 }
 
-.dark .hover-underline:hover {
-  border-bottom-color: rgba(255, 255, 255, 0.7);
+.light .hover-underline:hover {
+  border-bottom-color: rgba(0, 0, 0, 0.6);
 }
 
 .hover-underline:hover::after {

@@ -4,59 +4,42 @@ import { Link } from "react-router-dom";
 import MinimalistCursor from "./components/MinimalistCursor";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [lightMode, setLightMode] = useState(() => {
+    const savedMode = localStorage.getItem("lightMode");
+    return savedMode === "true";
+  });
 
   useEffect(() => {
-    const savedMode = localStorage.getItem("darkMode");
-    const isDark = savedMode !== null ? savedMode === "true" : true;
-    setDarkMode(isDark);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("darkMode", darkMode);
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
+    localStorage.setItem("lightMode", lightMode);
+    if (lightMode) {
+      document.documentElement.classList.add("light");
     } else {
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove("light");
     }
-  }, [darkMode]);
+  }, [lightMode]);
 
   return (
     <>
       <MinimalistCursor />
-      <div className="min-h-screen px-6 py-8 md:py-12 flex items-start md:items-center justify-center bg-stone-50 dark:bg-neutral-900 transition-colors duration-300">
+      <div className="min-h-screen px-6 py-8 md:py-12 flex items-start md:items-center justify-center bg-neutral-900 light:bg-stone-50 transition-colors duration-300">
         <div className="max-w-3xl w-full">
           <header className="mb-10 flex items-center justify-between">
-            <a className="text-lg font-medium hover-underline cursor-pointer underline-offset-8 dark:text-neutral-100">
+            <a className="text-lg font-medium hover-underline cursor-pointer underline-offset-8 text-neutral-100 light:text-neutral-900">
               Ammar Ahmad
             </a>
             <div className="flex items-center gap-6">
               <Link
                 to="/projects"
-                className="text-base text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover-underline cursor-pointer underline-offset-8 transition-colors"
+                className="text-base text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover-underline cursor-pointer underline-offset-8 transition-colors"
               >
                 projects
               </Link>
               <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-                aria-label="Toggle dark mode"
+                onClick={() => setLightMode(!lightMode)}
+                className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 transition-colors"
+                aria-label="Toggle light mode"
               >
-              {darkMode ? (
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                  />
-                </svg>
-              ) : (
+              {lightMode ? (
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -70,12 +53,26 @@ function App() {
                     d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
                   />
                 </svg>
+              ) : (
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                </svg>
               )}
             </button>
             </div>
           </header>
 
-          <main className="space-y-2.5 text-base leading-relaxed dark:text-neutral-300">
+          <main className="space-y-2.5 text-base leading-relaxed text-neutral-300 light:text-neutral-900">
             <div className="flex items-start gap-3">
               <span className="text-neutral-400 mt-0.5">➤</span>
               <p>
@@ -253,7 +250,7 @@ function App() {
               href="https://github.com/AmmarA06"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:scale-110 transition-all duration-200"
+              className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="GitHub"
             >
               <Github className="w-5 h-5" />
@@ -262,7 +259,7 @@ function App() {
               href="https://linkedin.com/in/ammar-ahmad06/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:scale-110 transition-all duration-200"
+              className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
@@ -271,7 +268,7 @@ function App() {
               href="https://x.com/ammarahmad06_"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:scale-110 transition-all duration-200"
+              className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="X (Twitter)"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -280,7 +277,7 @@ function App() {
             </a>
             <a
               href="mailto:ammarahmadwrk@gmail.com"
-              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:scale-110 transition-all duration-200"
+              className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="Email"
             >
               <Mail className="w-5 h-5" />
