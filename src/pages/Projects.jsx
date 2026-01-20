@@ -41,7 +41,7 @@ function Projects() {
     },
     {
       title: "Discovery",
-      description: "",
+      description: "a 2-axis pan-tilt servo system expands the field of view for high-precision 3D tracking via an Xbox Kinect. This custom vision pipeline identifies and logs real-time interaction events into a spatial database for high-fidelity coordinate telemetry",
       tags: ["Grounding DINO", "LiDAR", "SQLite", "FastAPI", "React", "Framer Motion"],
       media: "/videos/discovery-website-vid.mp4",
       mediaType: "video",
