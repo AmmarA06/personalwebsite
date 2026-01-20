@@ -33,11 +33,21 @@ function Projects() {
       description:
         "an intelligent browser extension that transforms webpages into notes.",
       tags: ["Chrome Extension", "Gemini", "Notion API"],
-      media: "/videos/Synthra_clip_edited.mp4", 
-      mediaType: "video", 
-      playbackSpeed: 1.5, 
+      media: "/videos/Synthra_clip_edited.mp4",
+      mediaType: "video",
+      playbackSpeed: 1.5,
       github: "https://github.com/AmmarA06/Synthra/",
       link: null,
+    },
+    {
+      title: "Discovery",
+      description: "",
+      tags: ["Grounding DINO", "LiDAR", "SQLite", "FastAPI", "React", "Framer Motion"],
+      media: "/videos/discovery-website-vid.mp4",
+      mediaType: "video",
+      playbackSpeed: 1.5,
+      github: "https://github.com/AmmarA06/Discovery/",
+      link: null
     },
     {
       title: "Rift Rewind",
@@ -65,7 +75,7 @@ function Projects() {
       description:
         "a Monkeytype-styled app, but for programming languages.",
       tags: ["React", "TypeScript", "Vite", "Supabase"],
-      media: ["/projectimages/codetype.png"], 
+      media: ["/projectimages/codetype.png"],
       mediaType: "image",
       playbackSpeed: 1.0,
       github: "https://github.com/AmmarA06/CodeType/",
@@ -159,7 +169,7 @@ function Projects() {
             {projects.map((project, index) => {
               const videoRef = useRef(null);
               const [currentImageIndex, setCurrentImageIndex] = useState(0);
-              
+
               useEffect(() => {
                 if (videoRef.current && project.mediaType === "video") {
                   videoRef.current.playbackRate = project.playbackSpeed || 1.0;
@@ -182,106 +192,106 @@ function Projects() {
                   key={index}
                   className="bg-neutral-800 light:bg-white rounded-lg overflow-hidden border border-neutral-700 light:border-neutral-200 hover:scale-[1.03] hover:shadow-2xl light:hover:shadow-xl transition-all duration-300 cursor-pointer"
                 >
-                {/* Media */}
-                <div className={project.mediaType === "video" ? "aspect-video bg-neutral-700 light:bg-neutral-200 flex items-center justify-center" : "bg-neutral-700 light:bg-neutral-200 flex items-center justify-center relative"}>
-                  {project.media ? (
-                    project.mediaType === "video" ? (
-                      <video
-                        ref={videoRef}
-                        src={project.media}
-                        className="w-full h-full object-cover"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        loading="lazy"
-                        preload="metadata"
-                      />
-                    ) : (
-                      <>
-                        <img
-                          src={images[currentImageIndex]}
-                          alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                          className="w-full h-auto"
+                  {/* Media */}
+                  <div className={project.mediaType === "video" ? "aspect-video bg-neutral-700 light:bg-neutral-200 flex items-center justify-center" : "bg-neutral-700 light:bg-neutral-200 flex items-center justify-center relative"}>
+                    {project.media ? (
+                      project.mediaType === "video" ? (
+                        <video
+                          ref={videoRef}
+                          src={project.media}
+                          className="w-full h-full object-cover"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
                           loading="lazy"
+                          preload="metadata"
                         />
-                        {hasMultipleImages && (
-                          <>
-                            <button
-                              onClick={prevImage}
-                              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
-                              aria-label="Previous image"
-                            >
-                              <ChevronLeft className="w-5 h-5" />
-                            </button>
-                            <button
-                              onClick={nextImage}
-                              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
-                              aria-label="Next image"
-                            >
-                              <ChevronRight className="w-5 h-5" />
-                            </button>
-                            <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded">
-                              {currentImageIndex + 1} / {images.length}
-                            </div>
-                          </>
-                        )}
-                      </>
-                    )
-                  ) : (
-                    <span className="text-neutral-500 light:text-neutral-400 text-sm py-24">
-                      {project.mediaType === "video" ? "video placeholder" : "image placeholder"}
-                    </span>
-                  )}
-                </div>
+                      ) : (
+                        <>
+                          <img
+                            src={images[currentImageIndex]}
+                            alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                            className="w-full h-auto"
+                            loading="lazy"
+                          />
+                          {hasMultipleImages && (
+                            <>
+                              <button
+                                onClick={prevImage}
+                                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
+                                aria-label="Previous image"
+                              >
+                                <ChevronLeft className="w-5 h-5" />
+                              </button>
+                              <button
+                                onClick={nextImage}
+                                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
+                                aria-label="Next image"
+                              >
+                                <ChevronRight className="w-5 h-5" />
+                              </button>
+                              <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded">
+                                {currentImageIndex + 1} / {images.length}
+                              </div>
+                            </>
+                          )}
+                        </>
+                      )
+                    ) : (
+                      <span className="text-neutral-500 light:text-neutral-400 text-sm py-24">
+                        {project.mediaType === "video" ? "video placeholder" : "image placeholder"}
+                      </span>
+                    )}
+                  </div>
 
-                <div className="p-5">
-                  <div className="flex items-start justify-between mb-2">
-                    <h2 className="text-lg font-medium text-neutral-100 light:text-neutral-900">
-                      {project.title}
-                    </h2>
-                    <div className="flex gap-3 ml-4">
-                      {project.github && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 transition-colors"
-                          aria-label="GitHub"
+                  <div className="p-5">
+                    <div className="flex items-start justify-between mb-2">
+                      <h2 className="text-lg font-medium text-neutral-100 light:text-neutral-900">
+                        {project.title}
+                      </h2>
+                      <div className="flex gap-3 ml-4">
+                        {project.github && (
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 transition-colors"
+                            aria-label="GitHub"
+                          >
+                            <Github className="w-5 h-5" />
+                          </a>
+                        )}
+                        {project.link && (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 transition-colors"
+                            aria-label="Open Link"
+                          >
+                            <ExternalLink className="w-5 h-5" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+
+                    <p className="text-neutral-300 light:text-neutral-600 text-sm mb-4 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.tags.map((tags, tagsIndex) => (
+                        <span
+                          key={tagsIndex}
+                          className="text-xs px-1.5 py-1 bg-neutral-700 light:bg-neutral-100 text-neutral-300 light:text-neutral-700 rounded-md"
                         >
-                          <Github className="w-5 h-5" />
-                        </a>
-                      )}
-                      {project.link && (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 transition-colors"
-                          aria-label="Open Link"
-                        >
-                          <ExternalLink className="w-5 h-5" />
-                        </a>
-                      )}
+                          {tags}
+                        </span>
+                      ))}
                     </div>
                   </div>
-
-                  <p className="text-neutral-300 light:text-neutral-600 text-sm mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tags.map((tags, tagsIndex) => (
-                      <span
-                        key={tagsIndex}
-                        className="text-xs px-1.5 py-1 bg-neutral-700 light:bg-neutral-100 text-neutral-300 light:text-neutral-700 rounded-md"
-                      >
-                        {tags}
-                      </span>
-                    ))}
-                  </div>
                 </div>
-              </div>
               );
             })}
           </div>
