@@ -91,32 +91,13 @@ function Projects() {
       github: "https://github.com/AmmarA06/BiasBreaker/",
       link: "https://devpost.com/software/biasbreaker",
     },
-    {
-      title: "Trivia Bot",
-      description: "a Discord bot for hosting trivia games across multiple categories with scoreboards, streak tracking, and leaderboards.",
-      tags: ["Python", "SQLite", "Discord"],
-      media: "/videos/triviabot_demo.mp4",
-      mediaType: "video",
-      playbackSpeed: 1.5,
-      github: "https://github.com/AmmarA06/Trivia-Bot/",
-    },
-    {
-      title: "Basketball Analysis App",
-      description: "this project allows users to record and analyze player stats, including shots, blocks, and rebounds.",
-      tags: ["Pygame", "Matplotlib"],
-      media: "/projectimages/basketballapp.png",
-      mediaType: "image",
-      playbackSpeed: 1.0,
-      github: "https://github.com/AmmarA06/Basketball-Analysis-App",
-    },
-
   ];
 
   return (
     <>
       <MinimalistCursor />
       <div className="min-h-screen px-6 py-6 md:py-12 flex items-start md:items-center justify-center bg-neutral-900 light:bg-stone-50 transition-colors duration-300">
-        <div className="max-w-2xl w-full">
+        <div className="max-w-xl w-full">
           {/* Header */}
           <header className="mb-10 flex items-center justify-between">
             <Link
