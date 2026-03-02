@@ -26,10 +26,10 @@ function App() {
     },
     {
       company: "University of Toronto",
-      role: "Research Assistant",
+      role: "Undergraduate Research Assistant",
       logo: "/Utoronto_coa.svg.png",
       link: "https://marshtompsxd.github.io/",
-      date: "Apr 2026 - Present",
+      date: "Feb 2026 - Present",
       description: "Improving reliability of distributed systems",
     },
     {
@@ -71,7 +71,7 @@ function App() {
     <>
       <MinimalistCursor />
       <div className="min-h-screen px-6 py-8 md:py-12 flex items-start md:items-center justify-center bg-neutral-900 light:bg-stone-50 transition-colors duration-300 dot-pattern">
-        <div className="max-w-[500px] w-full">
+        <div className="max-w-[500px] w-full min-h-[calc(100vh-4rem)] md:min-h-0 flex flex-col">
           <header className="mb-4 flex items-center justify-between">
             <a className="text-base font-medium hover-underline cursor-pointer underline-offset-8 text-neutral-100 light:text-neutral-900">
               Ammar Ahmad
@@ -175,7 +175,7 @@ function App() {
                       >
                         {exp.company}
                       </a>
-                      <p className="text-xs text-neutral-100 light:text-neutral-900 mt-0.5">
+                      <p className="text-xs font-normal text-neutral-100 light:text-neutral-900 mt-0.5">
                         {exp.role}
                       </p>
                     </div>
@@ -240,7 +240,14 @@ function App() {
                       alt="Snowflake"
                       className="h-4 w-4 object-contain inline align-text-bottom"
                     />{" "}
-                    Snowflake
+                    <a
+                      href="https://www.snowflake.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover-underline"
+                    >
+                      Snowflake
+                    </a>
                   </span>
                 </p>
               </div>
@@ -260,7 +267,7 @@ function App() {
             </div>
           </main>
 
-          <footer className="mt-12 flex gap-5">
+          <footer className="mt-auto pt-12 flex gap-5">
             <a
               href="https://github.com/AmmarA06"
               target="_blank"

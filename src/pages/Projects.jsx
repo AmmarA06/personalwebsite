@@ -257,7 +257,7 @@ function Projects() {
                       </div>
                     </div>
 
-                    <p className="text-neutral-300 light:text-neutral-600 text-sm mb-4 leading-relaxed">
+                    <p className="text-neutral-300 light:text-neutral-600 text-sm font-normal mb-4 leading-relaxed">
                       {project.description}
                     </p>
 
@@ -265,7 +265,7 @@ function Projects() {
                       {project.tags.map((tags, tagsIndex) => (
                         <span
                           key={tagsIndex}
-                          className="text-xs px-1.5 py-1 bg-neutral-700 light:bg-neutral-100 text-neutral-300 light:text-neutral-700 rounded-md"
+                          className="text-xs font-normal px-1.5 py-1 bg-neutral-700 light:bg-neutral-100 text-neutral-300 light:text-neutral-700 rounded-md"
                         >
                           {tags}
                         </span>
