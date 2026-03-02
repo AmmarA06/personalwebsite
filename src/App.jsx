@@ -9,16 +9,24 @@ function App() {
     return savedMode === "true";
   });
 
-  const [expandedExp, setExpandedExp] = useState(null);
+  const [expandedExps, setExpandedExps] = useState(new Set());
 
   const toggleExp = (index) => {
-    setExpandedExp(expandedExp === index ? null : index);
+    setExpandedExps((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+      return next;
+    });
   };
 
   const experiences = [
     {
       company: "Shopify",
-      role: "Software Engineering Intern",
+      role: "Software Engineer Intern",
       logo: "/shopify-logo.png",
       link: "https://www.shopify.com/",
       date: "May 2026 - Aug 2026",
@@ -155,8 +163,7 @@ function App() {
               {experiences.map((exp, index) => (
                 <div key={index}>
                   <div
-                    onMouseEnter={() => setExpandedExp(index)}
-                    onMouseLeave={() => setExpandedExp(null)}
+                    onMouseEnter={() => !expandedExps.has(index) && setExpandedExps((prev) => new Set(prev).add(index))}
                     onClick={() => toggleExp(index)}
                     className="flex items-center gap-3 py-1.5 cursor-pointer group"
                   >
@@ -165,41 +172,43 @@ function App() {
                       alt={exp.company}
                       className="h-9 w-9 object-contain rounded"
                     />
-                    <div className="flex-1">
-                      <a
-                        href={exp.link}
-                        onClick={(e) => e.stopPropagation()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-medium hover-underline text-neutral-100 light:text-neutral-900"
-                      >
-                        {exp.company}
-                      </a>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between">
+                        <a
+                          href={exp.link}
+                          onClick={(e) => e.stopPropagation()}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-medium text-xs md:text-sm hover-underline text-neutral-100 light:text-neutral-900"
+                        >
+                          {exp.company}
+                        </a>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-neutral-500 light:text-neutral-400 whitespace-nowrap">
+                            {exp.date}
+                          </span>
+                          <ChevronDown
+                            className={`w-3 h-3 text-neutral-500 transition-transform duration-200 ${
+                              expandedExps.has(index) ? "rotate-180" : ""
+                            }`}
+                          />
+                        </div>
+                      </div>
                       <p className="text-xs font-normal text-neutral-100 light:text-neutral-900 mt-0.5">
                         {exp.role}
                       </p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-neutral-500 light:text-neutral-400 whitespace-nowrap">
-                        {exp.date}
-                      </span>
-                      <ChevronDown
-                        className={`w-3 h-3 text-neutral-500 transition-transform duration-200 ${
-                          expandedExp === index ? "rotate-180" : ""
-                        }`}
-                      />
-                    </div>
                   </div>
                   <div
                     className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                      expandedExp === index
+                      expandedExps.has(index)
                         ? "grid-rows-[1fr]"
                         : "grid-rows-[0fr]"
                     }`}
                   >
                     <div className="overflow-hidden">
                       <p className={`text-neutral-500 light:text-neutral-400 text-xs pb-2 ml-12 transition-opacity duration-500 ease-in-out ${
-                        expandedExp === index ? "opacity-100" : "opacity-0"
+                        expandedExps.has(index) ? "opacity-100" : "opacity-0"
                       }`}>
                         {exp.description}
                       </p>
