@@ -96,13 +96,13 @@ function Projects() {
   return (
     <>
       <MinimalistCursor />
-      <div className="min-h-screen px-6 py-6 md:py-12 flex items-start md:items-center justify-center bg-neutral-900 light:bg-stone-50 transition-colors duration-300">
-        <div className="max-w-xl w-full">
+      <div className="min-h-screen px-6 py-6 md:py-12 flex items-start md:items-center justify-center bg-neutral-900 light:bg-stone-50 transition-colors duration-300 dot-pattern">
+        <div className="max-w-[500px] w-full">
           {/* Header */}
           <header className="mb-10 flex items-center justify-between">
             <Link
               to="/"
-              className="text-lg font-medium hover-underline cursor-pointer underline-offset-8 text-neutral-100 light:text-neutral-900"
+              className="text-base font-medium hover-underline cursor-pointer underline-offset-8 text-neutral-100 light:text-neutral-900"
             >
               Ammar Ahmad
             </Link>
@@ -114,7 +114,7 @@ function Projects() {
               >
                 {lightMode ? (
                   <svg
-                    className="w-5 h-5"
+                    className="w-4 h-4"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -128,7 +128,7 @@ function Projects() {
                   </svg>
                 ) : (
                   <svg
-                    className="w-5 h-5"
+                    className="w-4 h-4"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -285,7 +285,7 @@ function Projects() {
               className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="GitHub"
             >
-              <Github className="w-5 h-5" />
+              <Github className="w-4 h-4" />
             </a>
             <a
               href="https://linkedin.com/in/ammar-ahmad06/"
@@ -294,7 +294,7 @@ function Projects() {
               className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-4 h-4" />
             </a>
             <a
               href="https://x.com/ammarahmad06_"
@@ -303,7 +303,7 @@ function Projects() {
               className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="X (Twitter)"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
@@ -312,7 +312,7 @@ function Projects() {
               className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="Email"
             >
-              <Mail className="w-5 h-5" />
+              <Mail className="w-4 h-4" />
             </a>
           </footer>
         </div>

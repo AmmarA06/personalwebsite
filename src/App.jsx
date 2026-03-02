@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MinimalistCursor from "./components/MinimalistCursor";
@@ -8,6 +8,55 @@ function App() {
     const savedMode = localStorage.getItem("lightMode");
     return savedMode === "true";
   });
+
+  const [expandedExp, setExpandedExp] = useState(null);
+
+  const toggleExp = (index) => {
+    setExpandedExp(expandedExp === index ? null : index);
+  };
+
+  const experiences = [
+    {
+      company: "Shopify",
+      role: "Software Engineering Intern",
+      logo: "/shopify-logo.png",
+      link: "https://www.shopify.com/",
+      date: "May 2026 - Aug 2026",
+      description: "Summer 2026",
+    },
+    {
+      company: "University of Toronto",
+      role: "Research Assistant",
+      logo: "/Utoronto_coa.svg.png",
+      link: "https://marshtompsxd.github.io/",
+      date: "Apr 2026 - Present",
+      description: "Improving reliability of distributed systems",
+    },
+    {
+      company: "aUToronto",
+      role: "Software Developer",
+      logo: "/autoronto.webp",
+      link: "https://www.autodrive.utoronto.ca/",
+      date: "Sep 2024 - Present",
+      description: "Motion planning for autonomous vehicles",
+    },
+    {
+      company: "Graycore",
+      role: "Software Engineer Intern",
+      logo: "/graycore-cube.svg",
+      link: "https://graycore.io/",
+      date: "May 2025 - Aug 2025",
+      description: "Development frameworks and deployment infrastructure",
+    },
+    {
+      company: "University of Waterloo",
+      role: "Research Assistant",
+      logo: "/University_of_Waterloo_seal.svg.png",
+      link: "https://uwaterloo.ca/digital-intelligence-for-public-health/",
+      date: "Oct 2023 - Jan 2024",
+      description: "Advancing public health through AI-driven social media and data analytics",
+    },
+  ];
 
   useEffect(() => {
     localStorage.setItem("lightMode", lightMode);
@@ -21,16 +70,16 @@ function App() {
   return (
     <>
       <MinimalistCursor />
-      <div className="min-h-screen px-6 py-8 md:py-12 flex items-start md:items-center justify-center bg-neutral-900 light:bg-stone-50 transition-colors duration-300">
-        <div className="max-w-3xl w-full">
-          <header className="mb-10 flex items-center justify-between">
-            <a className="text-lg font-medium hover-underline cursor-pointer underline-offset-8 text-neutral-100 light:text-neutral-900">
+      <div className="min-h-screen px-6 py-8 md:py-12 flex items-start md:items-center justify-center bg-neutral-900 light:bg-stone-50 transition-colors duration-300 dot-pattern">
+        <div className="max-w-[500px] w-full">
+          <header className="mb-4 flex items-center justify-between">
+            <a className="text-base font-medium hover-underline cursor-pointer underline-offset-8 text-neutral-100 light:text-neutral-900">
               Ammar Ahmad
             </a>
             <div className="flex items-center gap-6">
               <Link
                 to="/projects"
-                className="text-base text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover-underline cursor-pointer underline-offset-8 transition-colors"
+                className="text-sm text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover-underline cursor-pointer underline-offset-8 transition-colors"
               >
                 projects
               </Link>
@@ -41,7 +90,7 @@ function App() {
               >
               {lightMode ? (
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -55,7 +104,7 @@ function App() {
                 </svg>
               ) : (
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -72,9 +121,8 @@ function App() {
             </div>
           </header>
 
-          <main className="space-y-2.5 text-base leading-relaxed text-neutral-300 light:text-neutral-900">
-            <div className="flex items-start gap-3">
-              <span className="text-neutral-400 mt-0.5">➤</span>
+          <main className="space-y-2.5 text-sm leading-relaxed text-neutral-300 light:text-neutral-900">
+            <div>
               <p>
                 Studying Computer Engineering at{" "}
                 <img
@@ -97,150 +145,117 @@ function App() {
                   rel="noopener noreferrer"
                   className="font-medium hover-underline"
                 >
-                  full-ride scholarship
+                  full-ride
                 </a>
               </p>
             </div>
 
-            <div className="flex items-start gap-3">
-              <span className="text-neutral-400 mt-0.5">➤</span>
-              <p>
-                Software Developer at{" "}
-                <img
-                  src="/autoronto.webp"
-                  alt="aUToronto"
-                  className="h-6 w-7 object-contain inline align-text-bottom"
-                />{" "}
-                <a
-                  href="https://www.autodrive.utoronto.ca/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium hover-underline"
-                >
-                  aUToronto
-                </a>
-              </p>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <span className="text-neutral-400 mt-0.5">➤</span>
-              <div>
-                <p className="mb-2">previous...</p>
-                <div className="ml-5 space-y-2">
-                  <div className="flex items-start gap-3">
-                    <span className="text-neutral-300 mt-0.5">→</span>
-                    <p>
-                      Software Engineer Intern at{" "}
-                      <img
-                        src="/graycore-cube.svg"
-                        alt="Graycore"
-                        className="h-5 w-6 object-contain inline align-text-bottom"
-                      />{" "}
+            <p className="font-medium text-neutral-100 light:text-neutral-900 pt-3">experience</p>
+            <div className="space-y-1">
+              {experiences.map((exp, index) => (
+                <div key={index}>
+                  <div
+                    onMouseEnter={() => setExpandedExp(index)}
+                    onMouseLeave={() => setExpandedExp(null)}
+                    onClick={() => toggleExp(index)}
+                    className="flex items-center gap-3 py-1.5 cursor-pointer group"
+                  >
+                    <img
+                      src={exp.logo}
+                      alt={exp.company}
+                      className="h-9 w-9 object-contain rounded"
+                    />
+                    <div className="flex-1">
                       <a
-                        href="https://graycore.io/"
+                        href={exp.link}
+                        onClick={(e) => e.stopPropagation()}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-medium hover-underline"
+                        className="font-medium hover-underline text-neutral-100 light:text-neutral-900"
                       >
-                        Graycore
+                        {exp.company}
                       </a>
-                    </p>
+                      <p className="text-xs text-neutral-100 light:text-neutral-900 mt-0.5">
+                        {exp.role}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-neutral-500 light:text-neutral-400 whitespace-nowrap">
+                        {exp.date}
+                      </span>
+                      <ChevronDown
+                        className={`w-3 h-3 text-neutral-500 transition-transform duration-200 ${
+                          expandedExp === index ? "rotate-180" : ""
+                        }`}
+                      />
+                    </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-neutral-300 mt-0.5">→</span>
-                    <p>
-                      Research Developer Intern at{" "}
-                      <img
-                        src="/University_of_Waterloo_seal.svg.png"
-                        alt="UWaterloo"
-                        className="h-6 w-6 object-contain inline align-text-bottom"
-                      />{" "}
-                      <a
-                        href="https://uwaterloo.ca/digital-intelligence-for-public-health/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-medium hover-underline"
-                      >
-                        UWaterloo
-                      </a>
-                    </p>
+                  <div
+                    className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                      expandedExp === index
+                        ? "grid-rows-[1fr]"
+                        : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <p className={`text-neutral-500 light:text-neutral-400 text-xs pb-2 ml-12 transition-opacity duration-500 ease-in-out ${
+                        expandedExp === index ? "opacity-100" : "opacity-0"
+                      }`}>
+                        {exp.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
+              ))}
+            </div>
+
+            <p className="font-medium text-neutral-100 light:text-neutral-900 pt-3">some projects</p>
+            <div className="space-y-2">
+              <div>
+                <p>
+                  <a
+                    href="https://github.com/AmmarA06/Discovery/"
+                    className="hover-underline font-medium"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Discovery
+                  </a>
+                  <span className="text-neutral-500 light:text-neutral-400">{" "}real-time 3D object tracking with LiDAR and computer vision</span>
+                </p>
               </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <span className="text-neutral-400 mt-0.5">➤</span>
               <div>
-                <p className="mb-2">some projects i've built...</p>
-                <div className="ml-5 space-y-2">
-
-                                    <div className="flex items-start gap-3">
-                    <span className="text-neutral-300 mt-0.5">→</span>
-                    <p>
-                      a                       <img
-                        src="/shopify-logo.png"
-                        alt="Shopify"
-                        className="h-6 w-6 object-contain inline align-text-bottom"
-                      />{" "}
-                      
-                      Shopify app that turns plain product photos into{" "}
-                      <a
-                        href="https://github.com/AmmarA06/Shop3D"
-                        className="hover-underline font-medium"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                      3D shopping experiences
-                      </a>{" "}
-                    </p>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <span className="text-neutral-300 mt-0.5">→</span>
-                    <p>
-                      a{" "}
-                      <a
-                        href="https://tinyurl.com/2nc7tc9e"
-                        className="hover-underline font-medium"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        productivity app
-                      </a>{" "}
-                      that tracks gaze to improve concentration, interest from{" "}
-                      <img
-                        src="/snowflake-color.png"
-                        alt="Snowflake"
-                        className="h-5 w-5 object-contain inline align-text-bottom"
-                      />{" "}
-                      <a
-                        className="hover-underline font-medium"
-                        href="https://www.snowflake.com/en/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Snowflake
-                      </a>
-                    </p>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <span className="text-neutral-300 mt-0.5">→</span>
-                    <p>
-                      an{" "}
-                      <a
-                        href="https://github.com/AmmarA06/Synthra/"
-                        className="hover-underline font-medium"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        intelligent browser extension
-                      </a>{" "}
-                      that transforms webpages into notes
-                    </p>
-                  </div>
-                </div>
+                <p>
+                  <a
+                    href="https://tinyurl.com/2nc7tc9e"
+                    className="hover-underline font-medium"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    LookLock
+                  </a>
+                  <span className="text-neutral-500 light:text-neutral-400">{" "}gaze-tracking productivity app, interest from{" "}
+                    <img
+                      src="/snowflake-color.png"
+                      alt="Snowflake"
+                      className="h-4 w-4 object-contain inline align-text-bottom"
+                    />{" "}
+                    Snowflake
+                  </span>
+                </p>
+              </div>
+              <div>
+                <p>
+                  <a
+                    href="https://github.com/AmmarA06/Synthra/"
+                    className="hover-underline font-medium"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Synthra
+                  </a>
+                  <span className="text-neutral-500 light:text-neutral-400">{" "}browser extension that turns pages into notes</span>
+                </p>
               </div>
             </div>
           </main>
@@ -253,7 +268,7 @@ function App() {
               className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="GitHub"
             >
-              <Github className="w-5 h-5" />
+              <Github className="w-4 h-4" />
             </a>
             <a
               href="https://linkedin.com/in/ammar-ahmad06/"
@@ -262,7 +277,7 @@ function App() {
               className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-4 h-4" />
             </a>
             <a
               href="https://x.com/ammarahmad06_"
@@ -271,7 +286,7 @@ function App() {
               className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="X (Twitter)"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
@@ -280,7 +295,7 @@ function App() {
               className="text-neutral-400 light:text-neutral-600 hover:text-neutral-100 light:hover:text-neutral-900 hover:scale-110 transition-all duration-200"
               aria-label="Email"
             >
-              <Mail className="w-5 h-5" />
+              <Mail className="w-4 h-4" />
             </a>
           </footer>
         </div>
