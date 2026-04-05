@@ -42,7 +42,7 @@ function App() {
     },
     {
       company: "aUToronto",
-      role: "Software Developer",
+      role: "Software Engineer",
       logo: "/autoronto.webp",
       link: "https://www.autodrive.utoronto.ca/",
       date: "Sep 2024 - Present",
