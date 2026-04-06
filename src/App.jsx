@@ -38,7 +38,7 @@ function App() {
       logo: "/Utoronto_coa.svg.png",
       link: "https://marshtompsxd.github.io/",
       date: "Feb 2026 - Present",
-      description: "Improving reliability of distributed systems",
+      description: "Using formal verification to improve the reliability of distributed systems",
     },
     {
       company: "aUToronto",

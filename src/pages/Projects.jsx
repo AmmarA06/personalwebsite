@@ -81,16 +81,6 @@ function Projects() {
       github: "https://github.com/AmmarA06/CodeType/",
       link: null,
     },
-    {
-      title: "BiasBreaker",
-      description: "search for any news topic and receive a multi-perspective summary.",
-      tags: ["React", "three.js", "FastAPI", "Cohere", "Beautiful Soup", "Next.js", "Supabase"],
-      media: "/projectimages/biasbreaker.png",
-      mediaType: "image",
-      playbackSpeed: 1.0,
-      github: "https://github.com/AmmarA06/BiasBreaker/",
-      link: "https://devpost.com/software/biasbreaker",
-    },
   ];
 
   return (
