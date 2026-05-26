@@ -2,6 +2,7 @@ import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MinimalistCursor from "./components/MinimalistCursor";
+import AsciiFlashlight from "./components/AsciiFlashlight";
 
 function App() {
   const [lightMode, setLightMode] = useState(() => {
@@ -62,7 +63,7 @@ function App() {
       logo: "/University_of_Waterloo_seal.svg.png",
       link: "https://uwaterloo.ca/digital-intelligence-for-public-health/",
       date: "Oct 2023 - Jan 2024",
-      description: "Advancing public health through AI-driven social media and data analytics",
+      description: "NLP and data analytics for public health surveillance",
     },
   ];
 
@@ -77,9 +78,10 @@ function App() {
 
   return (
     <>
+      <AsciiFlashlight lightMode={lightMode} />
       <MinimalistCursor />
-      <div className="min-h-screen px-6 py-8 md:py-12 flex items-start md:items-center justify-center bg-neutral-900 light:bg-stone-50 transition-colors duration-300 dot-pattern">
-        <div className="max-w-[500px] w-full min-h-[calc(100vh-4rem)] md:min-h-0 flex flex-col">
+      <div className="min-h-screen px-6 py-8 md:py-12 flex items-start md:items-center justify-center bg-transparent transition-colors duration-300 dot-pattern relative z-20">
+        <div data-content className="max-w-[500px] w-full min-h-[calc(100vh-4rem)] md:min-h-0 flex flex-col">
           <header className="mb-4 flex items-center justify-between">
             <a className="text-base font-medium hover-underline cursor-pointer underline-offset-8 text-neutral-100 light:text-neutral-900">
               Ammar Ahmad

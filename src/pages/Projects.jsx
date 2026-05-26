@@ -2,6 +2,7 @@ import { Github, Linkedin, Mail, ExternalLink, ChevronLeft, ChevronRight } from 
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import MinimalistCursor from "../components/MinimalistCursor";
+import AsciiFlashlight from "../components/AsciiFlashlight";
 
 function Projects() {
   const [lightMode, setLightMode] = useState(() => {
@@ -85,9 +86,10 @@ function Projects() {
 
   return (
     <>
+      <AsciiFlashlight lightMode={lightMode} />
       <MinimalistCursor />
-      <div className="min-h-screen px-6 py-6 md:py-12 flex items-start md:items-center justify-center bg-neutral-900 light:bg-stone-50 transition-colors duration-300 dot-pattern">
-        <div className="max-w-[500px] w-full">
+      <div className="min-h-screen px-6 py-6 md:py-12 flex items-start md:items-center justify-center bg-transparent transition-colors duration-300 dot-pattern relative z-20">
+        <div data-content className="max-w-[500px] w-full">
           {/* Header */}
           <header className="mb-10 flex items-center justify-between">
             <Link
