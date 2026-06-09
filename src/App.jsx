@@ -81,7 +81,7 @@ function App() {
       <AsciiFlashlight lightMode={lightMode} />
       <MinimalistCursor />
       <div className="min-h-screen px-6 py-8 md:py-12 flex items-start md:items-center justify-center bg-transparent transition-colors duration-300 dot-pattern relative z-20">
-        <div data-content className="max-w-[500px] w-full min-h-[calc(100vh-4rem)] md:min-h-0 flex flex-col">
+        <div data-content className="max-w-[500px] min-[1201px]:max-w-[41.67vw] w-full min-h-[calc(100vh-4rem)] md:min-h-0 flex flex-col">
           <header className="mb-4 flex items-center justify-between">
             <a className="text-base font-medium hover-underline cursor-pointer underline-offset-8 text-neutral-100 light:text-neutral-900">
               Ammar Ahmad
@@ -134,7 +134,16 @@ function App() {
           <main className="space-y-2.5 text-sm leading-relaxed text-neutral-300 light:text-neutral-900">
             <div>
               <p>
-                Studying Computer Engineering at{" "}
+                On a{" "}
+                <a
+                  href="https://schulichleaders.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold hover-underline"
+                >
+                  full-ride
+                </a>{" "}
+                studying Computer Engineering at{" "}
                 <img
                   src="/Utoronto_coa.svg.png"
                   alt="UofT"
@@ -147,15 +156,6 @@ function App() {
                   className="font-medium hover-underline"
                 >
                   University of Toronto
-                </a>{" "}
-                on a{" "}
-                <a
-                  href="https://schulichleaders.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium hover-underline"
-                >
-                  full-ride
                 </a>
               </p>
             </div>
