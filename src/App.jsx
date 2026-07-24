@@ -220,62 +220,6 @@ function App() {
               ))}
             </div>
 
-            <p className="font-medium text-neutral-100 light:text-neutral-900 pt-3">some projects</p>
-            <div className="space-y-2">
-              <div>
-                <p>
-                  <a
-                    href="https://github.com/AmmarA06/Discovery/"
-                    className="hover-underline font-medium"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Discovery
-                  </a>
-                  <span className="text-neutral-500 light:text-neutral-400">{" "}real-time 3D object tracking with LiDAR and computer vision</span>
-                </p>
-              </div>
-              <div>
-                <p>
-                  <a
-                    href="https://tinyurl.com/2nc7tc9e"
-                    className="hover-underline font-medium"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LookLock
-                  </a>
-                  <span className="text-neutral-500 light:text-neutral-400">{" "}gaze-tracking productivity app, interest from{" "}
-                    <img
-                      src="/snowflake-color.png"
-                      alt="Snowflake"
-                      className="h-4 w-4 object-contain inline align-text-bottom"
-                    />{" "}
-                    <a
-                      href="https://www.snowflake.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover-underline"
-                    >
-                      Snowflake
-                    </a>
-                  </span>
-                </p>
-              </div>
-              <div>
-                <p>
-                  <a
-                    href="https://github.com/AmmarA06/Synthra/"
-                    className="hover-underline font-medium"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Synthra
-                  </a>
-                  <span className="text-neutral-500 light:text-neutral-400">{" "}browser extension that turns pages into notes</span>
-                </p>
-              </div>
-            </div>
           </main>
 
           <footer className="mt-auto pt-12 flex gap-5">
