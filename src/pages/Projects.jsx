@@ -20,9 +20,37 @@ function Projects() {
   }, [lightMode]);
   const projects = [
     {
+      title: "SAMCraft",
+      description: (
+        <>
+          turns photos into Minecraft builds. click any object in an image and it's segmented with SAM 2, reconstructed into a 3D mesh, voxelized into blocks with CIEDE2000 perceptual color matching, and exported as{" "}
+          <code className="px-1 py-0.5 bg-neutral-700 light:bg-neutral-100 rounded text-[0.8em] font-mono">.schem</code>{" "}
+          or{" "}
+          <code className="px-1 py-0.5 bg-neutral-700 light:bg-neutral-100 rounded text-[0.8em] font-mono">.litematic</code>{" "}
+          schematics.
+        </>
+      ),
+      tags: ["SAM 2", "Image-to-3D", "Voxelization", "Python"],
+      media: "/videos/samcraft-demo.mp4",
+      mediaType: "video",
+      playbackSpeed: 2.0,
+      github: "https://github.com/AmmarA06/SAMCraft/",
+      link: null,
+    },
+    {
+      title: "Discovery",
+      description: "a 2-axis pan-tilt servo system expands the field of view for high-precision 3D tracking via an Xbox Kinect. this custom vision pipeline identifies and logs real-time interaction events into a spatial database for high-fidelity coordinate telemetry",
+      tags: ["Grounding DINO", "LiDAR", "SQLite", "FastAPI", "React", "Framer Motion"],
+      media: "/videos/discovery-website-vid.mp4",
+      mediaType: "video",
+      playbackSpeed: 1.5,
+      github: "https://github.com/AmmarA06/Discovery/",
+      link: null
+    },
+    {
       title: "Shop3D",
-      description: "a Shopify app that turns product images into interactive 3D models. Customers can rotate, zoom, and inspect products directly on your store. Uses TripoSR for model generation and React Three Fiber for smooth 3D visualization.",
-      tags: ["Shopify API", "Ruby on Rails", "GraphQL", "FastAPI", "three.js", "Celery", "TripoSR", "Redis", "SQL"],
+      description: "a Shopify app that turns product images into interactive 3D models. customers can rotate, zoom, and inspect products directly on your store.",
+      tags: ["GraphQL", "FastAPI", "three.js", "Celery", "TripoSR", "Redis", "SQL"],
       media: "/videos/shopify-3d-viewer.mp4",
       mediaType: "video",
       playbackSpeed: 1.5,
@@ -39,16 +67,6 @@ function Projects() {
       playbackSpeed: 1.5,
       github: "https://github.com/AmmarA06/Synthra/",
       link: null,
-    },
-    {
-      title: "Discovery",
-      description: "a 2-axis pan-tilt servo system expands the field of view for high-precision 3D tracking via an Xbox Kinect. This custom vision pipeline identifies and logs real-time interaction events into a spatial database for high-fidelity coordinate telemetry",
-      tags: ["Grounding DINO", "LiDAR", "SQLite", "FastAPI", "React", "Framer Motion"],
-      media: "/videos/discovery-website-vid.mp4",
-      mediaType: "video",
-      playbackSpeed: 1.5,
-      github: "https://github.com/AmmarA06/Discovery/",
-      link: null
     },
     {
       title: "Rift Rewind",
