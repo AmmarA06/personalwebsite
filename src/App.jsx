@@ -161,7 +161,7 @@ function App() {
             </div>
 
             <p className="font-medium text-neutral-100 light:text-neutral-900 pt-3">experience</p>
-            <div className="space-y-1">
+            <div className="space-y-6 md:space-y-1">
               {experiences.map((exp, index) => (
                 <div key={index}>
                   <div
