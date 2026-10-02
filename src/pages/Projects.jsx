@@ -164,6 +164,20 @@ function Projects() {
   }, [lightMode]);
   const projects = [
     {
+      title: "Vector",
+      description: (
+        <>
+          an IDE for designing robots from a catalog of 147 real parts. describe a robot to generate it, then refine it by editing the URDF directly or placing parts in the 3D viewer, and test it in a MuJoCo simulation
+        </>
+      ),
+      tags: ["MuJoCo", "Three.js", "Tauri", "Python"],
+      media: "/videos/vector_demo.mp4",
+      mediaType: "video",
+      playbackSpeed: 1.5,
+      github: "https://github.com/KenC2006/vector",
+      link: null,
+    },
+    {
       title: "SAMCraft",
       description: (
         <>
